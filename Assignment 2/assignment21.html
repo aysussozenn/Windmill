@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>Assignment 3 - Initials</title>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+uniform mat4 transformationMatrix;
+varying vec4 color;
+
+void
+main()
+{
+	gl_Position = transformationMatrix*vPosition;
+    gl_Position.z = 1.0;
+    gl_Position.w = 1.0;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+//TODO add necessary variable for color
+uniform vec4 color;
+void
+main()
+{
+    gl_FragColor = color;
+}
+</script>
+
+<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+<script type="text/javascript" src="../Common/initShaders.js"></script>
+<script type="text/javascript" src="../Common/MV.js"></script>
+<script type="text/javascript" src="assignment2.js"></script>
+</head>
+
+<body style="background-color:powderblue;">
+
+<div>
+Aysu Sozen,17050111051
+</div>
+<table>
+	<tr>
+		<td>
+		<canvas id="gl-canvas" width="800" height="800">
+			Oops ... your browser doesn't support the HTML5 canvas element
+		</canvas>
+		</td>
+		<td>
+			<div> <strong>---- Transformations ----</strong> </div><br>
+			
+			<div>Position</div> 
+			<div>X: -1<input id="inp_objX" type="range"
+			 min="-1" max="1" step="0.05" value="0" />1</div> 
+			<div>Y: -1<input id="inp_objY" type="range"
+			 min="-1" max="1" step="0.05" value="0" />1</div><br> 
+
+			<div>Scale</div> 
+			<div>0<input id="inp_obj_scale" type="range"
+			 min="0" max="2" step="0.05" value="1" />2</div> 
+			<br>
+			
+			<div>Rotation</div> 
+			<div>-180<input id="inp_obj_rotation" type="range"
+			 min="-180" max="180" step="5.0" value="0" />180
+			</div> 
+			<br>
+
+			<div>Speed</div> 
+			<div>-2<input id="inp_wing_speed" type="range"
+			 min="-2" max="2" step="0.1" value="0.5" />2
+			</div> 
+			<br>
+			
+			<div> <strong>---- Color ----</strong> </div><br>
+			<div>
+			R: 0<input id="redSlider" type="range"
+			 min="0" max="1" step="0.05" value="1" />1
+			</div> 
+			<div>
+			G: 0<input id="greenSlider" type="range"
+			 min="0" max="1" step="0.05" value="0" />1
+			</div> 
+			<div>
+			B: 0<input id="blueSlider" type="range"
+			 min="0" max="1" step="0.05" value="0" />1
+			</div>
+			<br>
+		</td>
+	</tr>
+</table>
+<div>
+</body>
+</html>
